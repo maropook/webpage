@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シマエナガゲーム</title>
+</head>
+<body>
+
+    <div id ="app">
+        <h1>{{message}}</h1>
+       <img v-bind:src="simaenaga" v-bind:width ="width" @click="clickCat" >
+       <img v-bind:src="imagePath"  @click="counting" width="100">
+  
+
+
+<p>{{count}}</p>
+    <div>
+
+
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+        var app =new Vue({
+            el:"#app",
+            data:{
+                //url:'http://yahoo.co.jp/',
+                imagePath:'',
+                width:250,
+                widthmini:70,
+                message:"シマエナガをクリックして卵を産もう",
+                egg:false,
+                count :0,
+                simaenaga:"img/img1.png"
+
+                //image:"https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG_pD3y_BCxk3S8l0gSSqhweHpkfzMePpZOmizUipIg0UK69E-lPnxfIE_5kMfR7gR-yL37roxzffude6DBqvgB0-qkAdoM0fbzQWrhqu5yGM9c0oT6PaoVC4CiQOHAzN_FoxH08uETZaLhHtfgKD2aYpG5KoyrMAI7gVWIkYk5LOlc7mt3ODI6AwMJ4Aoiv-l1hVdNPn8GJF1JZ-hY_3Kcjl_mc_3OgN6JTfIIlI2zQYD4J8Zmh5JHxFag2MJ-paoHSKmtTDuifr3n_SzwutnkX5b2Sixc-1PbmIdGdiUMNi9YDOB6c2a-Hqv-4fKc71sg==/top_image.jpeg",
+            },
+            methods:{
+
+                counting:function(){
+                    this.count +=1;
+                    if(this.count>10){
+                        this.message="あと少し";
+                        this.imagePath ='img/img3.png';
+                    }
+                    if(this.count>25){
+                        this.message="おめでとう！";
+                        this.imagePath ='img/img4.png';
+                    }
+                },
+               
+
+                clickCat:function(){
+
+                    if(this.count==0){
+                    this.imagePath　='img/img2.png';
+                    this.message="卵をクリックして温めて";}
+
+                  
+                },
+                clickDog:function(){
+                    this.imagePath ='img/img2.png';
+                },
+         
+
+                //画像アドレスをコピー
+            }
+        });
+    </script>
+</body>
+</html>

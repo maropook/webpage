@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+ 
+</head>
+<body>
+
+<div id ="app">
+ <!--敵のて-->
+    <div class="color"> 
+
+       <p>{{win}}勝　{{draw}}分け　{{lose}}負け</p>
+
+        <h1 class="arisa">{{result}}</h1>
+
+        <br>
+            <img :src="enemyHandImage" alt="" width =250 class="alisa"  style="transform: scale(1, -1);">
+
+
+
+          
+
+            <br>
+    </div>
+    <br><br>
+
+    <img :src="myHandImage" alt="" width =250 class="alisa" >
+   
+
+        <!-- <div class="gazou">
+    <img  src="imgjan/goo.PNG"  :width="size">
+  
+    <img  src="imgjan/tyoki.PNG"  :width="size">
+    <img  src="imgjan/pa-.PNG"  :width="size">
+      </div>
+
+        -->
+  
+    <div class="align">
+
+      <!--<button @click="fight('goo')">ぐー</button>    <button @click="fight('tyoki')">チョキ</button>
+        <button @click="fight('pa-')">ぱ-</button>
+       -->  
+
+        <a @click="fight('goo')" class="btn-square">ぐー</a>
+        <a @click="fight('tyoki')" class="btn-square">ちょきー</a>
+        <a @click="fight('pa-')" class="btn-square">ぱー</a>
+
+
+    </div>  
+
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+
+new Vue({
+
+
+    el:"#app",
+    data:{
+        size:250,
+        hand:['goo','tyoki','pa-'],
+        enemyHand:'',
+        myHandImage:'imgjan/my.PNG',
+        enemyHandImage:'imgjan/enemy.PNG',
+
+        win:0,
+        draw:0,
+        lose:0,
+        result:'じゃんけん勝負開始'
+
+
+
+       
+
+     
+
+    },
+    methods:{
+        fight:function(myhand){
+
+
+        var index =Math.floor(Math.random()*Math.floor(3));
+        this.enemyHand =this.hand[index];
+        this.myHandImage='imgjan/'+myhand+'.PNG';
+
+
+
+        if(this.enemyHand==='goo'){
+            this.enemyHandImage ='imgjan/goo.PNG';
+
+        }else if(this.enemyHand==='tyoki'){
+            this.enemyHandImage ='imgjan/tyoki.PNG';
+
+        }else{
+        this.enemyHandImage ='imgjan/pa-.PNG';
+
+        }
+
+        //比較るる
+        console.log('敵のて:'+this.enemyHand);
+        console.log('自分のて:'+myhand);
+
+
+
+        if(myhand===this.enemyHand){
+        console.log('引き分け');
+        this.result ="引き分け";
+        this.draw++;
+    
+    }
+        else if(((myhand==='goo' && this.enemyHand==='tyoki')||(myhand==='tyoki' && this.enemyHand==='pa-'))||(myhand==='pa-' && this.enemyHand==='goo'))
+        {
+        console.log('かち');
+        this.result ="かち";
+        this.win++;
+        }else{
+            console.log('負け');
+
+            this.result ="負け";
+            this.lose++;
+        }
+    }}
+})
+
+    </script>
+</body>
+</html>

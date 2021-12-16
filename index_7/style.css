@@ -1,0 +1,68 @@
+h1{
+    height: auto;
+    margin: 40px 0 0 50px;
+    padding: 0;
+    color: rgb(238, 0, 0);
+    font-size: 40px;
+    font-weight: bold;
+   border-top: 0;
+    line-height: 1.5;
+ 
+
+  
+
+    
+}
+
+.result{
+
+
+    color: blue;
+}
+.color{
+
+    background-color: rgb(202, 213, 234);
+}
+
+
+img.alisa,h1.arisa,.align{ 
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align:center;
+   
+}
+
+.align,.gazou{
+
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+  
+}
+
+
+.btn-square {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #ff9c38;/*ボタン色*/
+    color: rgb(0, 0, 0);
+    border-bottom: solid 4px #835e09;
+    border-radius: 3px;
+
+       
+   
+
+  
+
+
+  }
+  .btn-square:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+  }
